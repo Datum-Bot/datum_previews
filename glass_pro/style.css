@@ -7,10 +7,25 @@
     --border: rgba(255, 255, 255, 0.08);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--bg); color: white; font-family: 'Inter', sans-serif; line-height: 1.6; }
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
 
-.forge-container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+body { 
+    background: var(--bg); 
+    color: white; 
+    font-family: 'Inter', sans-serif; 
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevents awkward horizontal shaking on mobile */
+}
+
+.forge-container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 40px 20px; 
+}
 
 /* NAVIGATION */
 .glass-nav { 
@@ -22,6 +37,7 @@ body { background: var(--bg); color: white; font-family: 'Inter', sans-serif; li
     border: 1px solid var(--border); 
     border-radius: 20px; 
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     margin-bottom: 80px;
 }
 
@@ -34,7 +50,12 @@ body { background: var(--bg); color: white; font-family: 'Inter', sans-serif; li
     -webkit-text-fill-color: transparent;
 }
 
-.nav-links { display: flex; align-items: center; gap: 25px; }
+.nav-links { 
+    display: flex; 
+    align-items: center; 
+    gap: 25px; 
+}
+
 .nav-links a {
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
@@ -42,31 +63,37 @@ body { background: var(--bg); color: white; font-family: 'Inter', sans-serif; li
     font-weight: 600;
     transition: color 0.3s ease;
 }
-.nav-links a:hover { color: var(--red); }
 
-/* HERO SECTION - THE OVERLAP FIX */
+.nav-links a:hover { 
+    color: var(--red); 
+}
+
+/* HERO SECTION */
 .hero-section {
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: space-between;
+    gap: 40px;
     min-height: 70vh;
     margin-bottom: 100px;
 }
 
 .hero-text { 
-    flex: 0 0 55%; /* Keeps text on the left half */
+    flex: 0 1 55%;
     z-index: 5;
 }
 
 .hero-visual { 
-    flex: 0 0 40%; /* Keeps image on the right half */
+    flex: 0 1 40%;
     position: relative; 
     display: flex; 
     justify-content: center; 
+    align-items: center;
+    width: 100%;
 }
 
 h1 {
-    font-size: clamp(3rem, 8vw, 6rem);
+    font-size: clamp(2.5rem, 6vw, 5.5rem); /* Keeps title scalable without spilling out */
     font-weight: 900;
     line-height: 1.0; 
     letter-spacing: -2px;
@@ -74,14 +101,25 @@ h1 {
     text-transform: uppercase;
 }
 
-.badge { color: var(--red); font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; }
-.hero-text p { color: rgba(255,255,255,0.5); font-size: 1.1rem; max-width: 480px; }
+.badge { 
+    color: var(--red); 
+    font-size: 0.7rem; 
+    font-weight: 700; 
+    letter-spacing: 3px; 
+}
 
-/* IMAGE STYLING */
+.hero-text p { 
+    color: rgba(255,255,255,0.5); 
+    font-size: 1.1rem; 
+    max-width: 480px; 
+}
+
+/* VISUAL MEDIA STYLING (IMAGE & 3D MODEL) */
 .hero-visual img, model-viewer { 
     width: 100%; 
     height: auto; 
-    max-height: 500px;
+    aspect-ratio: 1 / 1; /* Keeps visuals cleanly squared */
+    max-height: 450px;
     border-radius: 30px; 
     border: 1px solid var(--border); 
     object-fit: cover;
@@ -92,26 +130,136 @@ h1 {
     position: absolute; 
     width: 120%; 
     height: 120%; 
-    background: radial-gradient(circle, rgba(255,59,59,0.15) 0%, transparent 70%); 
-    filter: blur(60px); 
+    background: radial-gradient(circle, rgba(255,59,59,0.12) 0%, transparent 70%); 
+    filter: blur(50px); 
     z-index: 1; 
 }
 
 /* PROJECT GRID */
-.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-.project-card { background: var(--glass); border: 1px solid var(--border); border-radius: 24px; overflow: hidden; }
-.card-media { width: 100%; height: 250px; background: #000; }
-.card-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
-.card-content { padding: 30px; }
-.card-content h3 { font-size: 1.5rem; margin-bottom: 10px; }
-.card-content p { color: rgba(255,255,255,0.5); font-size: 0.95rem; }
+.project-grid { 
+    display: grid; 
+    /* Changed minmax to 290px so it fits smaller mobile screens without clipping */
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); 
+    gap: 30px; 
+}
+
+.project-card { 
+    background: var(--glass); 
+    border: 1px solid var(--border); 
+    border-radius: 24px; 
+    overflow: hidden; 
+}
+
+.card-media { 
+    width: 100%; 
+    height: 250px; 
+    background: #000; 
+}
+
+.card-img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    opacity: 0.8; 
+}
+
+.card-content { 
+    padding: 30px; 
+}
+
+.card-content h3 { 
+    font-size: 1.5rem; 
+    margin-bottom: 10px; 
+}
+
+.card-content p { 
+    color: rgba(255,255,255,0.5); 
+    font-size: 0.95rem; 
+}
 
 /* FOOTER */
 .datum-footer {
     margin-top: 120px;
-    padding: 60px 0;
+    padding: 40px 0;
     text-align: center;
     border-top: 1px solid var(--border);
 }
-.datum-footer p { font-size: 0.8rem; color: rgba(255, 255, 255, 0.3); }
-.datum-link { color: var(--red); text-decoration: none; font-weight: 700; }
+
+.datum-footer p { 
+    font-size: 0.8rem; 
+    color: rgba(255, 255, 255, 0.3); 
+}
+
+.datum-link { 
+    color: var(--red); 
+    text-decoration: none; 
+    font-weight: 700; 
+}
+
+/* ==========================================================================
+   MEDIA QUERY: TABLET & MOBILE RULES (768px and down)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .forge-container {
+        padding: 20px 15px; /* Tighter safety padding for modern phones */
+    }
+
+    .glass-nav {
+        padding: 12px 20px;
+        margin-bottom: 50px;
+    }
+
+    .nav-links {
+        gap: 15px; /* Pulls nav items closer together on small viewports */
+    }
+
+    .nav-links a {
+        font-size: 0.75rem; /* Slightly smaller text for fit */
+    }
+
+    .hero-section {
+        flex-direction: column; /* Stacks layout elements vertically */
+        text-align: center;
+        gap: 50px;
+        min-height: auto;
+        margin-bottom: 80px;
+    }
+
+    .hero-text {
+        flex: 0 0 100%;
+        order: 1; /* Text stays on top */
+    }
+
+    .hero-text p {
+        margin: 0 auto; /* Centers the paragraph block container */
+        font-size: 1rem;
+    }
+
+    .hero-visual {
+        flex: 0 0 100%;
+        order: 2; /* Visual drops beautifully underneath */
+        max-width: 380px; /* Prevents scaling too large on vertical stacks */
+        margin: 0 auto;
+    }
+    
+    .hero-visual img, model-viewer {
+        max-height: 380px;
+    }
+
+    h1 {
+        line-height: 1.1;
+        margin: 15px 0;
+    }
+}
+
+/* EXTRA SMALL MOBILE BREAKPOINT (For tiny devices like iPhone SE) */
+@media (max-width: 380px) {
+    .glass-nav {
+        flex-direction: column; /* Safe stack for brand titles vs links */
+        gap: 10px;
+    }
+    
+    .nav-links {
+        gap: 12px;
+    }
+}
