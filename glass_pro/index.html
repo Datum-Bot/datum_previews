@@ -4,48 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glass Pro | Preview</title>
-    <!-- 3D Model Viewer Support -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="forge-container">
-        <!-- HEADER -->
+        
+        <div class="section-divider">Section 01: Global Branding</div>
+
         <header class="glass-nav">
-            <div class="logo brand-title">VANGUARD</div>
+            <div class="logo brand-title">YOUR BRAND</div>
             <nav class="nav-links">
-                <a href="#">Works</a>
+                <a href="#">Projects</a>
                 <a href="#">About</a>
                 <a href="#">Contact</a>
             </nav>
         </header>
 
-        <!-- HERO SECTION -->
-        <section class="hero-section">
-    <div class="hero-text">
-        <span class="badge">TEMPLATE 01: GLASS PRO</span>
-        <h1>Engineering<br>Digital<br>Excellence</h1>
-        <p>We transform complex ideas into minimalist, high-performance digital experiences that scale with your brand.</p>
-    </div>
-    
-    <div class="hero-visual">
-        <model-viewer 
-        src="Intake-manifold-glb.glb" 
-        alt="SolidWorks Intake Manifold 3D Model" 
-        auto-rotate 
-        camera-controls 
-        interaction-prompt="none"
-        touch-action="none"
-        min-camera-orbit="auto auto auto"
-        max-camera-orbit="auto auto auto"
-        shadow-intensity="1"
-        exposure="1.2">
-    </model-viewer>
-    <div class="glow-sphere"></div>
-    </div>
-</section>
+        <div class="section-divider">Section 02: Main Media Feature</div>
 
-        <!-- PROJECT GRID -->
+        <section class="hero-section">
+            <div class="hero-text">
+                <span class="badge">TEMPLATE 01: GLASS PRO</span>
+                <h1>Your Core<br>Statement<br>Here</h1>
+                <p>This layout zone is your hook. You define the headlines, body text, and primary media asset. Through the bot, you can seamlessly embed an interactive 3D model, deploy a standard high-res image canvas, or leave it entirely text-driven.</p>
+            </div>
+            
+            <div class="hero-visual">
+                <model-viewer 
+                    src="intake-manifold.glb" 
+                    alt="Interactive 3D Preview Asset" 
+                    auto-rotate 
+                    camera-controls 
+                    interaction-prompt="none"
+                    touch-action="none"
+                    min-camera-orbit="auto auto auto"
+                    max-camera-orbit="auto auto auto"
+                    shadow-intensity="1"
+                    exposure="1.2">
+                </model-viewer>
+                <div class="glow-sphere"></div>
+            </div>
+        </section>
+
+        <div class="section-divider">Section 03: Dynamic Content Grid</div>
+
         <div class="content-stack">
             <div class="project-grid">
                 <div class="project-card">
@@ -53,8 +56,8 @@
                         <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=400" class="card-img">
                     </div>
                     <div class="card-content">
-                        <h3>Neural Interface</h3>
-                        <p>A deep-dive into biometric data visualization.</p>
+                        <h3>Custom Block A</h3>
+                        <p>This block adapts dynamically to whatever you feed it. Use it to present portfolio collections, highlight specialized services, frame case studies, or showcase individual creative assets.</p>
                     </div>
                 </div>
                 
@@ -63,14 +66,15 @@
                         <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=400" class="card-img">
                     </div>
                     <div class="card-content">
-                        <h3>Aura Branding</h3>
-                        <p>Minimalist 3D identity for a luxury tech house.</p>
+                        <h3>Custom Block B</h3>
+                        <p>Expand your layout footprint with structural sub-cards. Populate them with descriptions, specifications, external links, or supplementary image resources built on the fly by the bot.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- FOOTER -->
+        <div class="section-divider">Section 04: Footer Info</div>
+
         <footer class="datum-footer">
             <p>Powered by <a href="https://datum.bot" class="datum-link">Datum Bot</a></p>
         </footer>
