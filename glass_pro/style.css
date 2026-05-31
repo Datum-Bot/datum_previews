@@ -18,7 +18,7 @@ body {
     color: white; 
     font-family: 'Inter', sans-serif; 
     line-height: 1.6;
-    overflow-x: hidden; /* Prevents awkward horizontal shaking on mobile */
+    overflow-x: hidden; 
 }
 
 .forge-container { 
@@ -93,7 +93,7 @@ body {
 }
 
 h1 {
-    font-size: clamp(2.5rem, 6vw, 5.5rem); /* Keeps title scalable without spilling out */
+    font-size: clamp(2.5rem, 6vw, 5.5rem); 
     font-weight: 900;
     line-height: 1.0; 
     letter-spacing: -2px;
@@ -114,11 +114,11 @@ h1 {
     max-width: 480px; 
 }
 
-/* VISUAL MEDIA STYLING (IMAGE & 3D MODEL) */
+/* VISUAL MEDIA STYLING */
 .hero-visual img, model-viewer { 
     width: 100%; 
     height: auto; 
-    aspect-ratio: 1 / 1; /* Keeps visuals cleanly squared */
+    aspect-ratio: 1 / 1; 
     max-height: 450px;
     border-radius: 30px; 
     border: 1px solid var(--border); 
@@ -138,7 +138,6 @@ h1 {
 /* PROJECT GRID */
 .project-grid { 
     display: grid; 
-    /* Changed minmax to 290px so it fits smaller mobile screens without clipping */
     grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); 
     gap: 30px; 
 }
@@ -196,74 +195,6 @@ h1 {
     font-weight: 700; 
 }
 
-/* ==========================================================================
-   MEDIA QUERY: TABLET & MOBILE RULES (768px and down)
-   ========================================================================== */
-@media (max-width: 768px) {
-    .forge-container {
-        padding: 20px 15px; /* Tighter safety padding for modern phones */
-    }
-
-    .glass-nav {
-        padding: 12px 20px;
-        margin-bottom: 50px;
-    }
-
-    .nav-links {
-        gap: 15px; /* Pulls nav items closer together on small viewports */
-    }
-
-    .nav-links a {
-        font-size: 0.75rem; /* Slightly smaller text for fit */
-    }
-
-    .hero-section {
-        flex-direction: column; /* Stacks layout elements vertically */
-        text-align: center;
-        gap: 50px;
-        min-height: auto;
-        margin-bottom: 80px;
-    }
-
-    .hero-text {
-        flex: 0 0 100%;
-        order: 1; /* Text stays on top */
-    }
-
-    .hero-text p {
-        margin: 0 auto; /* Centers the paragraph block container */
-        font-size: 1rem;
-    }
-
-    .hero-visual {
-        flex: 0 0 100%;
-        order: 2; /* Visual drops beautifully underneath */
-        max-width: 380px; /* Prevents scaling too large on vertical stacks */
-        margin: 0 auto;
-    }
-    
-    .hero-visual img, model-viewer {
-        max-height: 380px;
-    }
-
-    h1 {
-        line-height: 1.1;
-        margin: 15px 0;
-    }
-}
-
-/* EXTRA SMALL MOBILE BREAKPOINT (For tiny devices like iPhone SE) */
-@media (max-width: 380px) {
-    .glass-nav {
-        flex-direction: column; /* Safe stack for brand titles vs links */
-        gap: 10px;
-    }
-    
-    .nav-links {
-        gap: 12px;
-    }
-}
-
 /* SECTION VISUALIZER LABELS */
 .section-divider {
     display: flex;
@@ -282,4 +213,80 @@ h1 {
     flex: 1;
     height: 1px;
     background: linear-gradient(to right, transparent, var(--border), transparent);
+}
+
+/* ==========================================================================
+   MEDIA QUERY: RESPONSIVE SCREEN BREAKPOINTS (768px and down)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .forge-container {
+        padding: 20px 15px; 
+    }
+
+    .glass-nav {
+        padding: 15px 20px;
+        margin-bottom: 50px;
+    }
+
+    .hero-section {
+        flex-direction: column; 
+        text-align: center;
+        gap: 50px;
+        min-height: auto;
+        margin-bottom: 80px;
+    }
+
+    .hero-text {
+        flex: 0 0 100%;
+        order: 1; 
+    }
+
+    .hero-text p {
+        margin: 0 auto; 
+        font-size: 1rem;
+    }
+
+    .hero-visual {
+        flex: 0 0 100%;
+        order: 2; 
+        max-width: 380px; 
+        margin: 0 auto;
+    }
+    
+    .hero-visual img, model-viewer {
+        max-height: 380px;
+    }
+
+    h1 {
+        line-height: 1.1;
+        margin: 15px 0;
+    }
+}
+
+/* MOBILE EMBRACING STACK BREAKPOINT (540px and down) */
+@media (max-width: 540px) {
+    .glass-nav {
+        flex-direction: column; /* Stacks Brand above Navigation completely */
+        gap: 12px;
+        padding: 18px 15px;
+        border-radius: 16px;
+    }
+
+    .brand-title {
+        font-size: 1.1rem;
+        letter-spacing: 3px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center; /* Beautiful horizontal line of menu links centered underneath */
+        gap: 28px; 
+        border-top: 1px solid rgba(255, 255, 255, 0.06); /* Clean inner partition line */
+        padding-top: 10px;
+    }
+
+    .nav-links a {
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+    }
 }
